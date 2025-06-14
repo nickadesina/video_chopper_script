@@ -14,8 +14,11 @@ def download_video(url, output_filename):
         url
     ], check=True)
 
+# Added some clip count control
+clip_count = int(input("How many clips do you want? "))
+
 # Step 2: Extract 1-minute clips using ffmpeg
-def extract_clips(input_filename, output_dir, clip_count=10):
+def extract_clips(input_filename, output_dir, clip_count):
     os.makedirs(output_dir, exist_ok=True)
     for i in range(clip_count):
         start_time = i * 60  # seconds
